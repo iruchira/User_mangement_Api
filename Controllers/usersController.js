@@ -1,7 +1,9 @@
-
 const {
     createService,
-    AllServices,
+    allServices,
+    singleServices
+
+
 } = require ('../Services/serviceUser.js');
 
 exports.addUsers = (req, res) => {
@@ -14,6 +16,14 @@ exports.addUsers = (req, res) => {
     }
  };
 exports.viewAllUsers =(req, res) =>{
-  var controllerAdd = AllServices;
+  var controllerAdd = allServices;
   res.status(200).send(controllerAdd());
+};
+
+exports.viewSingleUser =(req,res) =>{
+var controllerAdd = singleServices(req.params.id);
+if (controllerAdd === false) {
+    res.status(400).send("Value doesn't exists");
+  } else;
+  res.status(200).send(controllerAdd);
 };

@@ -35,11 +35,23 @@ exports.createService =(user)=>{
               };
         }
 };
-exports.AllServices= () =>{
+exports.allServices= () =>{
     var responseArray =readFile();
     return responseArray;
-}
+};
 
+exports.singleServices =(id)=>{
+    const fileData =readFile();
+    var result = fileData.find(function(e){
+        return e.id === id;
+    });
+    if (result === undefined) {
+        return false;
+      } else {
+        return result;
+      }
+    };
+    
 const readFile = () => {
         const jsonData = fs.readFileSync("userData.json");
         return JSON.parse(jsonData);
