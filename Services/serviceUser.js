@@ -35,6 +35,10 @@ exports.createService =(user)=>{
               };
         }
 };
+exports.AllServices= () =>{
+    var responseArray =readFile();
+    return responseArray;
+}
 
 const readFile = () => {
         const jsonData = fs.readFileSync("userData.json");

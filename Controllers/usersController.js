@@ -1,6 +1,7 @@
 
 const {
     createService,
+    AllServices,
 } = require ('../Services/serviceUser.js');
 
 exports.addUsers = (req, res) => {
@@ -12,4 +13,7 @@ exports.addUsers = (req, res) => {
             res.status(400).send(controllerAdd.error);
     }
  };
-
+exports.viewAllUsers =(req, res) =>{
+  var controllerAdd = AllServices;
+  res.status(200).send(controllerAdd());
+};
